@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Http\Requests\UserRequest;
 use App\Repositories\HistoriGangguanRepository;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class HistoriGangguanService
@@ -22,6 +23,10 @@ class HistoriGangguanService
 
     public function save($request = [])
     {
+        $startDate = Carbon::parse($request['awal_gangguan']);
+        $endDate = Carbon::parse($request['akhir_gangguan']);
+        $request['durasi_gangguan'] = $endDate->diffInMinutes($startDate);
+
         return $this->historiGangguanRepository->save($request);
     }
 

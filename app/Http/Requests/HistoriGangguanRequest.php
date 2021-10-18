@@ -29,7 +29,7 @@ class HistoriGangguanRequest extends FormRequest
             'konklusi_id' => 'required',
             'awal_gangguan' => 'required|date_format:Y-m-d H:i:s',
             'akhir_gangguan' => 'required|date_format:Y-m-d H:i:s',
-            'durasi_gangguan' => 'required|integer',
+            // 'durasi_gangguan' => 'required|integer',
             'hasil_klasifikasi_id' => 'required',
         ];
     }

@@ -1,6 +1,18 @@
 @extends('layout.master')
 
 @push('plugin-styles')
+<style>
+
+  .error-durasi {
+    color: red;
+    display: none;
+  }
+
+  .error-durasi.show {
+    display: block;
+  }
+
+</style>
 @endpush
 
 @section('content')
@@ -63,12 +75,20 @@
               <div class="form-group row">
                 <label for="durasi_gangguan" class="col-sm-3 col-form-label">Durasi Gangguan</label>
                 <div class="col-sm-9">
-                  <input type="text" class="form-control {{ $errors->has('durasi_gangguan') ? ' is-invalid' : '' }}" id="durasi_gangguan" name="durasi_gangguan" placeholder="Durasi Gangguan" value="{{ isset($histori_gangguan) ? $histori_gangguan->durasi_gangguan : old('durasi_gangguan') }}"  required>
+                  <input type="text" class="form-control {{ $errors->has('durasi_gangguan') ? ' is-invalid' : '' }}" id="durasi_gangguan" name="durasi_gangguan" placeholder="Durasi Gangguan" value="{{ isset($histori_gangguan) ? $histori_gangguan->durasi_gangguan : old('durasi_gangguan') }}" disabled required>
+                  <div>
+                    <a href="#" id="hitungButton" style="margin-top: 15px;" class="btn btn-rounded btn-primary">Hitung</a>
+                  </div>
                   @if($errors->has('durasi_gangguan'))
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $errors->first('durasi_gangguan') }}</strong>
                     </span>
                   @endif
+
+                  <span class="error-durasi">
+                    <strong>Invalid Awal Gangguan or Akhir Gangguan Date</strong>
+                  </span>
+
                 </div>
               </div>
               <div class="form-group row">
@@ -169,6 +189,20 @@ $(function () {
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
+    });
+
+    $('#hitungButton').click(function() {
+      $('#durasi_gangguan').val(0);
+      $('.error-durasi').removeClass('show');
+      let startDate = Date.parse($('#awal_gangguan').val());
+      let endDate = Date.parse($('#akhir_gangguan').val());
+      if(isNaN(startDate) || isNaN(endDate)) {
+        $('.error-durasi').addClass('show');
+      } else {
+        let dif = endDate - startDate;
+        dif = Math.round((dif / 1000) / 60);
+        $('#durasi_gangguan').val(dif);
+      }
     });
 });
 </script>

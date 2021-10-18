@@ -1,6 +1,6 @@
 # Introduction
 
-This repository contains about a deposit and loan management application in a village that nowhere. hehe.
+This repository contains about a decision making system (read in bahasa: sistem pengambil keputusan) web application with The Analytic Hierarchy Process (AHP) methodelogy.
 
 # Tech Stack
 

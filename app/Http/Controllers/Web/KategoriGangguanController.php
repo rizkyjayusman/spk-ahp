@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\KategoriGangguanRequest;
 use App\Services\KategoriGangguanService;
 use App\Services\KonklusiService;
 use App\Traits\ResponseBuilder;
@@ -30,9 +31,9 @@ class KategoriGangguanController extends Controller
     }
 
     
-    public function addKategori(Request $request) 
+    public function addKategori(KategoriGangguanRequest $request) 
     {
-        $kategoriGangguan = $this->kategoriGangguanService->save($request->all());
+        $kategoriGangguan = $this->kategoriGangguanService->save($request->validated());
         return redirect('/kategori-gangguan');
     }
 
@@ -45,9 +46,9 @@ class KategoriGangguanController extends Controller
     }
 
     
-    public function editKategori($id, Request $request) 
+    public function editKategori($id, KategoriGangguanRequest $request) 
     {
-        $kategoriGangguan = $this->kategoriGangguanService->update($id, $request->all());
+        $kategoriGangguan = $this->kategoriGangguanService->update($id, $request->validated());
         return redirect('/kategori-gangguan');
     }
 }

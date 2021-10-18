@@ -45,7 +45,7 @@
               <div class="form-group row">
                 <label for="role" class="col-sm-3 col-form-label">Role</label>
                 <div class="col-sm-9">
-                  <select name="role" id="role" class="js-example-basic-single w-100" required value="{{ isset($user) ? $user->role_id : '' }}">
+                  <select name="role" id="role" class="js-example-basic-single w-100 {{ $errors->has('status') ? ' is-invalid' : '' }}" required value="{{ isset($user) ? $user->role_id : '' }}">
                     <option value="" 
                       @if (! isset($user)) selected="selected" @endif >Role</option>
                     <option value="1"

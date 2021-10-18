@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\LokasiRequest;
 use App\Services\LokasiService;
 use App\Traits\ResponseBuilder;
 use Illuminate\Http\Request;
@@ -28,9 +29,9 @@ class LokasiController extends Controller
         return view('pages.lokasi.edit');
     }
 
-    public function addLokasi(Request $request) 
+    public function addLokasi(LokasiRequest $request) 
     {
-        $user = $this->lokasiService->save($request->all());
+        $user = $this->lokasiService->save($request->validated());
         return redirect('/lokasi');
     }
 
@@ -45,7 +46,7 @@ class LokasiController extends Controller
     
     public function editLokasi($id, Request $request) 
     {
-        $user = $this->lokasiService->update($id, $request->all());
+        $user = $this->lokasiService->update($id, $request->validated());
         return redirect('/lokasi');
     }
 }

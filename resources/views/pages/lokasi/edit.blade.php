@@ -23,7 +23,7 @@
               <div class="form-group row">
                 <label for="alamat" class="col-sm-3 col-form-label">Alamat</label>
                 <div class="col-sm-9">
-                  <textarea class="form-control" id="alamat" name="alamat" style="height: 100px;">{{ isset($lokasi) ? $lokasi->alamat : '' }}</textarea>
+                  <textarea class="form-control {{ $errors->has('alamat') ? ' is-invalid' : '' }}" id="alamat" name="alamat" style="height: 100px;" required>{{ isset($lokasi) ? $lokasi->alamat : '' }}</textarea>
                 </div>
               </div>
               <button type="submit" class="btn btn-primary me-2">Submit</button>

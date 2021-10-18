@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Users;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UpdateUserRequest;
 use App\Http\Requests\UserRequest;
 use App\Services\ProductService;
 use App\Services\UserService;
@@ -45,7 +46,7 @@ class UserController extends Controller
         ]);
     }
 
-    public function editUser($id, UserRequest $request) 
+    public function editUser($id, UpdateUserRequest $request) 
     {
         $user = $this->userService->update($id, $request->validated());
         return redirect('/users');

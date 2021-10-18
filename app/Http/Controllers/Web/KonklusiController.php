@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\KonklusiRequest;
 use App\Services\KonklusiService;
 use App\Traits\ResponseBuilder;
 use Illuminate\Http\Request;
@@ -28,9 +29,9 @@ class KonklusiController extends Controller
         return view('pages.konklusi.edit');
     }
 
-    public function addKonklusi(Request $request) 
+    public function addKonklusi(KonklusiRequest $request) 
     {
-        $konklusi = $this->konklusiService->save($request->all());
+        $konklusi = $this->konklusiService->save($request->validated());
         return redirect('/konklusi');
     }
 
@@ -42,9 +43,9 @@ class KonklusiController extends Controller
         ]);
     }
         
-    public function editKonklusi($id, Request $request) 
+    public function editKonklusi($id, KonklusiRequest $request) 
     {
-        $konklusi = $this->konklusiService->update($id, $request->all());
+        $konklusi = $this->konklusiService->update($id, $request->validated());
         return redirect('/konklusi');
     }
 }

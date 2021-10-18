@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\HistoriGangguanRequest;
 use App\Services\HistoriGangguanService;
 use App\Services\KategoriGangguanService;
 use App\Services\KonklusiService;
@@ -47,7 +48,7 @@ class HistoriGangguanController extends Controller
         ]);
     }
     
-    public function addHistori(Request $request) 
+    public function addHistori(HistoriGangguanRequest $request) 
     {
         $historiGangguan = $this->historiGangguanService->save($request->all());
         return redirect('/histori-gangguan');
@@ -68,9 +69,9 @@ class HistoriGangguanController extends Controller
         ]);
     }
 
-    public function editHistori($id, Request $request) 
+    public function editHistori($id, HistoriGangguanRequest $request) 
     {
-        $konklusi = $this->historiGangguanService->update($id, $request->all());
+        $konklusi = $this->historiGangguanService->update($id, $request->validated());
         return redirect('/histori-gangguan');
     }
 }

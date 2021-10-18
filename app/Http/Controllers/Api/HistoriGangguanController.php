@@ -77,7 +77,7 @@ class HistoriGangguanController extends Controller
                 $row['awal_gangguan'] = $histori->awal_gangguan;
                 $row['akhir_gangguan'] = $histori->akhir_gangguan;
                 $row['durasi_gangguan'] = $histori->durasi_gangguan;
-                $row['kategori_gangguan'] = $histori->kategori_gangguan_id;
+                $row['kategori_gangguan'] = $histori->kategoriGangguan->title;
                 $row['hasil_klasifikasi'] = $histori->hasil_klasifikasi_title;
                 $row['action'] = $histori->konklusi->title;
 

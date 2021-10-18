@@ -36,36 +36,6 @@ class KonklusiController extends Controller
         ->make(true);
     }
 
-    public function store(UserRequest $konklusiRequest)
-    {
-        $konklusi = $this->konklusiService->save($konklusiRequest);
-        
-        return Response()->json([
-            'success' => true,
-            'data' => $konklusi
-        ]);
-    }
-
-    public function show($konklusiId)
-    {
-        $konklusi = $this->konklusiService->getKonklusiById($konklusiId);
-
-        return Response()->json([
-            'success' => true,
-            'data' => $konklusi
-        ]);
-    }
-
-    public function edit($konklusiId, UserRequest $konklusiRequest)
-    {
-        $konklusi = $this->konklusiService->update($konklusiId, $konklusiRequest);
-
-        return Response()->json([
-            'success' => true,
-            'data' => $konklusi
-        ]);
-    }
-
     public function delete($konklusiId)
     {
         $konklusi = $this->konklusiService->delete($konklusiId);

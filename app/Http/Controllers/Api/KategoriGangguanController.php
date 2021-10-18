@@ -36,36 +36,6 @@ class KategoriGangguanController extends Controller
         ->make(true);
     }
 
-    public function store(UserRequest $kategoriGangguanRequest)
-    {
-        $kategoriGangguan = $this->kategoriGangguanService->save($kategoriGangguanRequest);
-        
-        return Response()->json([
-            'success' => true,
-            'data' => $kategoriGangguan
-        ]);
-    }
-
-    public function show($kategoriGangguanId)
-    {
-        $kategoriGangguan = $this->kategoriGangguanService->getKategoriGangguanById($kategoriGangguanId);
-
-        return Response()->json([
-            'success' => true,
-            'data' => $kategoriGangguan
-        ]);
-    }
-
-    public function edit($kategoriGangguanId, UserRequest $kategoriGangguanRequest)
-    {
-        $kategoriGangguan = $this->kategoriGangguanService->update($kategoriGangguanId, $kategoriGangguanRequest);
-
-        return Response()->json([
-            'success' => true,
-            'data' => $kategoriGangguan
-        ]);
-    }
-
     public function delete($kategoriGangguanId)
     {
         $kategoriGangguan = $this->kategoriGangguanService->delete($kategoriGangguanId);

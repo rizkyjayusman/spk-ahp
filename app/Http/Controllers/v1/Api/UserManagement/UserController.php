@@ -37,36 +37,6 @@ class UserController extends Controller
         ->make(true);
     }
 
-    public function store(UserRequest $userRequest)
-    {
-        $user = $this->userService->save($userRequest);
-        
-        return Response()->json([
-            'success' => true,
-            'data' => $user
-        ]);
-    }
-
-    public function show($userId)
-    {
-        $user = $this->userService->getUserById($userId);
-
-        return Response()->json([
-            'success' => true,
-            'data' => $user
-        ]);
-    }
-
-    public function edit($userId, UserRequest $userRequest)
-    {
-        $user = $this->userService->update($userId, $userRequest);
-
-        return Response()->json([
-            'success' => true,
-            'data' => $user
-        ]);
-    }
-
     public function delete($userId)
     {
         $user = $this->userService->delete($userId);

@@ -36,36 +36,6 @@ class LokasiController extends Controller
         ->make(true);
     }
 
-    public function store(UserRequest $lokasiRequest)
-    {
-        $lokasi = $this->lokasiService->save($lokasiRequest);
-        
-        return Response()->json([
-            'success' => true,
-            'data' => $lokasi
-        ]);
-    }
-
-    public function show($lokasiId)
-    {
-        $lokasi = $this->lokasiService->getLokasiById($lokasiId);
-
-        return Response()->json([
-            'success' => true,
-            'data' => $lokasi
-        ]);
-    }
-
-    public function edit($lokasiId, UserRequest $lokasiRequest)
-    {
-        $lokasi = $this->lokasiService->update($lokasiId, $lokasiRequest);
-
-        return Response()->json([
-            'success' => true,
-            'data' => $lokasi
-        ]);
-    }
-
     public function delete($lokasiId)
     {
         $user = $this->lokasiService->delete($lokasiId);

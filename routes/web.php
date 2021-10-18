@@ -16,12 +16,10 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 
+Route::get('/home', 'HomeController@index')->name('home');
+
 Route::prefix('/')->middleware(['auth'])->group(function () {
     Route::get('/', 'HomeController@index');
-});
-
-Route::prefix('coupon')->middleware(['auth'])->group(function () {
-    Route::get('/', 'Coupons\CouponController@index');
 });
 
 Route::prefix('users')->middleware(['auth'])->group(function () {
@@ -68,20 +66,3 @@ Route::prefix('restitusi')->middleware(['auth'])->group(function () {
     Route::get('/', 'Web\RestitusiController@index')->name('restitusi_list');
     Route::get('/detail/{month}/{lokasi_id}', 'Web\RestitusiController@detail')->name('restitusi_detail');
 });
-
-
-// For Clear cache
-Route::get('/clear-cache', function () {
-    Artisan::call('cache:clear');
-
-    return 'Cache is cleared';
-});
-
-// 404 for undefined routes
-Route::any('/{page?}', function () {
-    return View::make('pages.error-pages.error-404');
-})->where('page', '.*');
-
-// Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

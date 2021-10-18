@@ -36,36 +36,6 @@ class HistoriGangguanController extends Controller
         ->make(true);
     }
 
-    public function store(UserRequest $historiGangguanRequest)
-    {
-        $historiGangguan = $this->historiGangguanService->save($historiGangguanRequest);
-        
-        return Response()->json([
-            'success' => true,
-            'data' => $historiGangguan
-        ]);
-    }
-
-    public function show($historiGangguanId)
-    {
-        $historiGangguan = $this->historiGangguanService->getHistoriGangguanById($historiGangguanId);
-
-        return Response()->json([
-            'success' => true,
-            'data' => $historiGangguan
-        ]);
-    }
-
-    public function edit($historiGangguanId, UserRequest $historiGangguanRequest)
-    {
-        $historiGangguan = $this->historiGangguanService->update($historiGangguanId, $historiGangguanRequest);
-
-        return Response()->json([
-            'success' => true,
-            'data' => $historiGangguan
-        ]);
-    }
-
     public function delete($historiGangguanId)
     {
         $historiGangguan = $this->historiGangguanService->delete($historiGangguanId);

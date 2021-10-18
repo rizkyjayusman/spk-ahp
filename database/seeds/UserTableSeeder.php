@@ -11,13 +11,24 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
-        $data = [
-            'email' => 'admin@spkahp.com',
-            'name' => 'Admin SPKAHP',
-            'email_verified_at' => now(),
-            'password'  => bcrypt('p@ssw0rd'),
-            'remember_token'   => Str::random(10),
-        ];
+        $data = array(
+            [
+                'email' => 'admin@spkahp.com',
+                'name' => 'Admin',
+                'email_verified_at' => now(),
+                'password'  => bcrypt('p@ssw0rd'),
+                'remember_token'   => null,
+                'role_id' => 1 , // ADMIN
+            ],
+            [
+                'email' => 'user@spkahp.com',
+                'name' => 'User',
+                'email_verified_at' => now(),
+                'password'  => bcrypt('p@ssw0rd'),
+                'remember_token'   => null,
+                'role_id' => 2 , // USER
+            ],
+        );
         DB::table('users')->insert($data);
     }
 }

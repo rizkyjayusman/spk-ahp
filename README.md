@@ -90,6 +90,7 @@ comming soon!
 
 3. Migrate Table
    $ php artisan migrate
+   $ php artisan db:seed
 
 3. Run the Project
    $ php artisan serve

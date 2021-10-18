@@ -5,12 +5,9 @@ This repository contains about a deposit and loan management application in a vi
 # Tech Stack
 
 I used these tech stack for create this project with:
-* Java 8
-* [Spring Boot](https://spring.io/projects/spring-boot)
-* PostgreDB (as main data storage)
-* MongoDB (as log data storage)
-* [Kafka](https://kafka.apache.org/)
-* Swagger 2
+* PHP 7
+* [Laravel](https://laravel.com/)
+* MySQL
 
 # Architecture
 
@@ -24,7 +21,7 @@ I used these tech stack for create this project with:
 
 <div align='center'>
 
-![SPK AHP DB Schema](docs/main-db-schema.png)
+![SPK AHP DB Schema](docs/db-schema.png)
 
 </div>
 
@@ -64,23 +61,18 @@ This tables shows which features that has been implemented by this repository.
 | Restitusi                         | Get All Restitusi                | :white_check_mark:                  |
 |                                   | Get Restitusi Detail             | :white_check_mark:                  |
 |                                   | Export CSV                       | :white_check_mark:                  |
-| Kategori Gangguan                 | Get All Histori Gangguan         | :white_check_mark:                  |
-|                                   | Add New Histori Gangguan         | :white_check_mark:                  |
+| Kategori Gangguan                 | Get All Kategori Gangguan        | :white_check_mark:                  |
+|                                   | Add New Kategori Gangguan        | :white_check_mark:                  |
 |                                   | Edit Existing Histori Gangguan   | :white_check_mark:                  |
-|                                   | Remove Existing Histori Gangguan | :white_check_mark:                  |
-|                                   | Export CSV                       | :white_check_mark:                  |
-| Transaction                       | Get All Transactions             | :white_check_mark:                  |
-|                                   | Create New Transaction           | :white_check_mark:                  |
-| Transaction History               | Get All Transaction Histories    | :white_check_mark:                  |
-|                                   | Create Transaction History       | :white_check_mark:                  |
-| Deposit                           | Get All Member's Deposit         | :white_check_mark:                  |
-|                                   | Create New Deposit               | :white_check_mark:                  |
-| Withdrawal                        | Create Withdrawal                | :white_check_mark:                  |
-| Loan                              | Get All Member's Loan            | :white_check_mark:                  |
-|                                   | Create New Loan                  | :white_check_mark:                  |
-| Repayment                         | Create Loan Repayment            | :white_check_mark:                  |
-| Unit Test                         |                                  | :heavy_exclamation_mark:            |
-| Api Documentation with Swagger    |                                  | :white_check_mark:                  |
+|                                   | Remove Exist Kategori Gangguan   | :white_check_mark:                  |
+| Action Konklusi                   | Get All Konklusi                 | :white_check_mark:                  |
+|                                   | Add New Konklusi                 | :white_check_mark:                  |
+|                                   | Edit Existing Konklusi           | :white_check_mark:                  |
+|                                   | Remove Exist Konklusi            | :white_check_mark:                  |
+| Lokasi                            | Get All Lokasi                   | :white_check_mark:                  |
+|                                   | Add New Lokasi                   | :white_check_mark:                  |
+|                                   | Edit Existing Lokasi             | :white_check_mark:                  |
+|                                   | Remove Exist Lokasi              | :white_check_mark:                  |
 
 
 # Build and Run (Without Docker)
@@ -97,7 +89,7 @@ This tables shows which features that has been implemented by this repository.
    $ java -jar /cooperation-project-path/app.jar
 ```
 
-# Build and Run (With Docker)
+# Build and Run (With Laradock)
 
 ```
 1. Clone the Project

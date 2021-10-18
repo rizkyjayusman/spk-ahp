@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Users;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UserRequest;
 use App\Services\ProductService;
 use App\Services\UserService;
 use App\Traits\ResponseBuilder;
@@ -29,9 +30,10 @@ class UserController extends Controller
         return view('pages.users.edit');
     }
 
-    public function addUser(Request $request) 
+    public function addUser(UserRequest $request) 
     {
-        $user = $this->userService->save($request->all());
+        
+        $user = $this->userService->save($request->validated());
         return redirect('/users');
     }
 
@@ -43,9 +45,9 @@ class UserController extends Controller
         ]);
     }
 
-    public function editUser($id, Request $request) 
+    public function editUser($id, UserRequest $request) 
     {
-        $user = $this->userService->update($id, $request->all());
+        $user = $this->userService->update($id, $request->validated());
         return redirect('/users');
     }
 }

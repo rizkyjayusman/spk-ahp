@@ -22,7 +22,9 @@
           <div class="card-body">
             <h4 class="card-title">Restitusi</h4>
             <p class="card-description">
-              <a href="#" id="exportButton" class="btn btn-dark btn-rounded btn-sm">Report</a> 
+              @if(Auth::user()->role_id == 1)
+                <a href="#" id="exportButton" class="btn btn-dark btn-rounded btn-sm">Report</a> 
+              @endif
             </p>
             <div class="row">
             <div class="filter">

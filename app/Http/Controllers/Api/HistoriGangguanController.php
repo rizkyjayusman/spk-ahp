@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Helpers\MonthHelper;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
 use App\Services\HistoriGangguanService;
@@ -130,7 +131,7 @@ class HistoriGangguanController extends Controller
             fputcsv($file, $columns, ';');
 
             foreach ($list as $restitusi) {
-                $row['month'] = $restitusi->month;
+                $row['month'] = MonthHelper::getName($restitusi->month);
                 $row['lokasi'] = $restitusi->alamat;
                 $row['durasi_gangguan'] = $restitusi->total_durasi;
                 $row['capai_kerja'] = ($restitusi->capai_kerja * 100) . '%';

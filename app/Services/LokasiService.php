@@ -38,4 +38,8 @@ class LokasiService
     {
         return $this->lokasiRepository->delete($id);
     }
+    
+    public function getTotalLokasi() {
+        return $this->lokasiRepository->getTotalLokasi();
+    }
 }

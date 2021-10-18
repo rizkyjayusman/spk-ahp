@@ -15,4 +15,7 @@ interface UserRepositoryInterface
     public function update($id, $request = []);
 
     public function delete($id);
+
+    public function getTotalUser();
+
 }

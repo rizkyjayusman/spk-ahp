@@ -37,7 +37,6 @@
   @stack('style')
 
 </head>
-</head>
 <body data-base-url="{{url('/')}}" class="sidebar-icon-only">
 
   <div class="container-scroller" id="app">

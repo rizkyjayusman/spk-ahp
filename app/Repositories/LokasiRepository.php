@@ -38,4 +38,9 @@ class LokasiRepository
     {
         return Lokasi::find($id)->delete();
     }
+
+    public function getTotalLokasi() {
+        return Lokasi::all()->count();
+    }
+
 }

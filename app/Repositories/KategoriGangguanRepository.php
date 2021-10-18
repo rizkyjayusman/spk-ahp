@@ -46,4 +46,8 @@ class KategoriGangguanRepository
     {
         return KategoriGangguan::find($id)->delete();
     }
+
+    public function getTotalKategori() {
+        return KategoriGangguan::all()->count();
+    }
 }

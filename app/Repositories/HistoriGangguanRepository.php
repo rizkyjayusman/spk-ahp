@@ -98,4 +98,9 @@ class HistoriGangguanRepository
     public function getRestitusiByMonthAndLokasiId($month, $lokasiId) {
         return $this->getRestitusi(['month' => $month, 'lokasi_id' => $lokasiId,])->first();
     }
+
+    public function getTotalHistori() {
+        return HistoriGangguan::all()->count();
+    }
+
 }

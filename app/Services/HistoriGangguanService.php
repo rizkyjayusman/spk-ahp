@@ -51,4 +51,8 @@ class HistoriGangguanService
         return $restitusiList;
     }
 
+    public function getTotalHistori() {
+        return $this->historiGangguanRepository->getTotalHistori();
+    }
+
 }

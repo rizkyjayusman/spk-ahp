@@ -40,4 +40,8 @@ class KategoriGangguanService
     {
         return $this->kategoriGangguanRepository->delete($id);
     }
+    
+    public function getTotalKategori() {
+        return $this->kategoriGangguanRepository->getTotalKategori();
+    }
 }

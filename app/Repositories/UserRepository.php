@@ -50,4 +50,8 @@ class UserRepository implements UserRepositoryInterface
     {
         return User::find($id)->delete();
     }
+
+    public function getTotalUser() {
+        return  User::all()->count();
+    }
 }

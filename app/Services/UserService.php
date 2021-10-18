@@ -40,4 +40,8 @@ class UserService
     {
         return $this->userRepository->delete($id);
     }
+    
+    public function getTotalUser() {
+        return $this->userRepository->getTotalUser();
+    }
 }

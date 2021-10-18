@@ -65,6 +65,9 @@ This tables shows which features that has been implemented by this repository.
 |                                   | Edit Existing Lokasi             | :white_check_mark:                  |
 |                                   | Remove Exist Lokasi              | :white_check_mark:                  |
 
+# Test Cases
+
+We already create test cases list. You can download [here](https://github.com/rizkyjayusman/spk-ahp/blob/master/docs/TestCase.xlsx)
 
 # Installation and Run (Using XAMPP)
 

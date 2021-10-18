@@ -1,61 +1,110 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Introduction
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+This repository contains about a deposit and loan management application in a village that nowhere. hehe.
 
-## About Laravel
+# Tech Stack
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+I used these tech stack for create this project with:
+* Java 8
+* [Spring Boot](https://spring.io/projects/spring-boot)
+* PostgreDB (as main data storage)
+* MongoDB (as log data storage)
+* [Kafka](https://kafka.apache.org/)
+* Swagger 2
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+# Architecture
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+<div align='center'>
 
-## Learning Laravel
+![SPK AHP Architecture](docs/architecture.png)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+</div>
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+# DB Schema
 
-## Laravel Sponsors
+<div align='center'>
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+![SPK AHP DB Schema](docs/main-db-schema.png)
 
-### Premium Partners
+</div>
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[OP.GG](https://op.gg)**
+# Api Documentation
 
-## Contributing
+This project already have an API Documentation that we create using Swagger 2. 
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+You can read that documentation on : http://localhost:8090/swagger-ui/
 
-## Code of Conduct
+You also can test our API using Postman. You can download the postman file [here](https://github.com/rizkyjayusman/cooperation/blob/main/docs/cooperation.postman_collection.json)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-## Security Vulnerabilities
+# Implemented Features
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+This tables shows which features that has been implemented by this repository.
 
-## License
+:white_check_mark: : ready
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+:heavy_exclamation_mark: : in progress
+
+:x: : not yet implemented
+
+| Features                          | Sub Features                     | Status                              |
+| --------------------------------- | -------------------------------- | ----------------------------------- |
+| User Authentication               | Login                            | :white_check_mark:                  |
+| User Authorization                | Admin                            | :white_check_mark:                  |
+|                                   | User                             | :white_check_mark:                  |
+| User Management                   | Get All Members                  | :white_check_mark:                  |
+|                                   | Add New Member                   | :white_check_mark:                  |
+|                                   | Edit Existing Member             | :white_check_mark:                  |
+|                                   | Remove Existing Member           | :white_check_mark:                  |
+| Histori Gangguan                  | Get All Histori Gangguan         | :white_check_mark:                  |
+|                                   | Add New Histori Gangguan         | :white_check_mark:                  |
+|                                   | Edit Existing Histori Gangguan   | :white_check_mark:                  |
+|                                   | Remove Existing Histori Gangguan | :white_check_mark:                  |
+|                                   | Export CSV                       | :white_check_mark:                  |
+| Restitusi                         | Get All Restitusi                | :white_check_mark:                  |
+|                                   | Get Restitusi Detail             | :white_check_mark:                  |
+|                                   | Export CSV                       | :white_check_mark:                  |
+| Kategori Gangguan                 | Get All Histori Gangguan         | :white_check_mark:                  |
+|                                   | Add New Histori Gangguan         | :white_check_mark:                  |
+|                                   | Edit Existing Histori Gangguan   | :white_check_mark:                  |
+|                                   | Remove Existing Histori Gangguan | :white_check_mark:                  |
+|                                   | Export CSV                       | :white_check_mark:                  |
+| Transaction                       | Get All Transactions             | :white_check_mark:                  |
+|                                   | Create New Transaction           | :white_check_mark:                  |
+| Transaction History               | Get All Transaction Histories    | :white_check_mark:                  |
+|                                   | Create Transaction History       | :white_check_mark:                  |
+| Deposit                           | Get All Member's Deposit         | :white_check_mark:                  |
+|                                   | Create New Deposit               | :white_check_mark:                  |
+| Withdrawal                        | Create Withdrawal                | :white_check_mark:                  |
+| Loan                              | Get All Member's Loan            | :white_check_mark:                  |
+|                                   | Create New Loan                  | :white_check_mark:                  |
+| Repayment                         | Create Loan Repayment            | :white_check_mark:                  |
+| Unit Test                         |                                  | :heavy_exclamation_mark:            |
+| Api Documentation with Swagger    |                                  | :white_check_mark:                  |
+
+
+# Build and Run (Without Docker)
+
+```
+1. Clone the Project
+   $ git clone git@github.com:rizkyjayusman/cooperation.git
+   $ cd cooperation
+
+2. Build and Package the Project
+   $ mvn -e clean package
+
+3. Run the Project
+   $ java -jar /cooperation-project-path/app.jar
+```
+
+# Build and Run (With Docker)
+
+```
+1. Clone the Project
+   $ git clone git@github.com:rizkyjayusman/cooperation.git
+   $ cd cooperation
+
+2. Build and Package the Project
+   $ docker build -t alami-cooperation-app .
+   $ docker-compose up -d --build
+```

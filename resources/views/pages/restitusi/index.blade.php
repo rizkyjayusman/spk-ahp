@@ -209,11 +209,7 @@ function initFilter()
 
       $('#exportButton').click(function() {
       let str = jQuery.param( {
-        to_date: $('#to_date').val(),
-        from_date: $('#from_date').val(),
-        coupon_code: $('#inputCouponCode').val(),
-                  product_id: $('#inputProductSelect').val(),
-                        status: $('#inputStatusSelect').val()
+          month: $('#month_filter').val()
         } )
         window.location.href = "/api/restitusi/export?" + str;
       });

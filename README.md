@@ -66,18 +66,30 @@ This tables shows which features that has been implemented by this repository.
 |                                   | Remove Exist Lokasi              | :white_check_mark:                  |
 
 
-# Build and Run (Without Docker)
+# Installation and Run (Using XAMPP)
 
+### XAMPP Installation
+
+comming soon!
+
+### Composer Installation
+
+comming soon!
+
+### Run
 ```
 1. Clone the Project
-   $ git clone git@github.com:rizkyjayusman/cooperation.git
-   $ cd cooperation
+   $ git clone https://github.com/rizkyjayusman/spk-ahp.git
+   $ cd spk-ahp
 
-2. Build and Package the Project
-   $ mvn -e clean package
+2. Install Dependencies
+   $ composer install
+
+3. Migrate Table
+   $ php artisan migrate
 
 3. Run the Project
-   $ java -jar /cooperation-project-path/app.jar
+   $ php artisan serve
 ```
 
 # Build and Run (With Laradock)

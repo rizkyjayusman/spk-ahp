@@ -1,0 +1,1 @@
+<a class="btn btn-sm btn-primary btn-rounded" style="padding: .375rem .5625rem;" href="{{ url('/restitusi/detail', array('month' => $row->month, 'lokasi_id' => $row->lokasi_id)) }}">Lihat Detail</a>

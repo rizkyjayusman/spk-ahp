@@ -8,6 +8,8 @@ I used these tech stack for create this project with:
 * PHP 7
 * [Laravel](https://laravel.com/)
 * MySQL
+* [Bootstrap](https://www.bootstrapdash.com/product/star-admin-free/)
+* [jQuery](https://jquery.com/)
 
 # Architecture
 

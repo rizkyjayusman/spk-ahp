@@ -1,6 +1,8 @@
 @extends('layout.master')
 
 @push('plugin-styles')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.standalone.min.css">
 <style>
 
   .error-durasi {
@@ -50,26 +52,30 @@
                   @endif
                 </div>
               </div>
-              <div class="form-group row">
-                <label for="awal_gangguan" class="col-sm-3 col-form-label">Awal Gangguan</label>
-                <div class="col-sm-9">
-                  <input type="text" class="form-control {{ $errors->has('awal_gangguan') ? ' is-invalid' : '' }}" id="awal_gangguan" name="awal_gangguan" placeholder="Awal Gangguan" value="{{ isset($histori_gangguan) ? $histori_gangguan->awal_gangguan : old('awal_gangguan') }}" required>
-                  @if($errors->has('awal_gangguan'))
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $errors->first('awal_gangguan') }}</strong>
-                    </span>
-                  @endif
-                </div>
+                <div class="form-group input-daterange filter-daterange">
+                  <div class="row">
+                    <label for="awal_gangguan" class="col-sm-3 col-form-label">Awal Gangguan</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control {{ $errors->has('awal_gangguan') ? ' is-invalid' : '' }}" id="awal_gangguan" name="awal_gangguan" autocomplete="off" placeholder='Awal Gangguan'  value="{{ isset($histori_gangguan) ? $histori_gangguan->awal_gangguan : old('awal_gangguan') }}" required>
+                      @if($errors->has('awal_gangguan'))
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->first('awal_gangguan') }}</strong>
+                        </span>
+                      @endif
+                    </div>
+                  </div>
               </div>
-              <div class="form-group row">
-                <label for="akhir_gangguan" class="col-sm-3 col-form-label">Akhir Gangguan</label>
-                <div class="col-sm-9">
-                  <input type="text" class="form-control {{ $errors->has('akhir_gangguan') ? ' is-invalid' : '' }}" id="akhir_gangguan" name="akhir_gangguan" placeholder="Akhir Gangguan" value="{{ isset($histori_gangguan) ? $histori_gangguan->akhir_gangguan : old('akhir_gangguan') }}" required>
-                  @if($errors->has('akhir_gangguan'))
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $errors->first('akhir_gangguan') }}</strong>
-                    </span>
-                  @endif
+              <div class="form-group  input-daterange filter-daterange">
+                <div class="row">
+                  <label for="akhir_gangguan" class="col-sm-3 col-form-label">Akhir Gangguan</label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control {{ $errors->has('akhir_gangguan') ? ' is-invalid' : '' }}" id="akhir_gangguan" name="akhir_gangguan" autocomplete="off" placeholder="Akhir Gangguan" value="{{ isset($histori_gangguan) ? $histori_gangguan->akhir_gangguan : old('akhir_gangguan') }}" required>
+                    @if($errors->has('akhir_gangguan'))
+                      <span class="invalid-feedback" role="alert">
+                          <strong>{{ $errors->first('akhir_gangguan') }}</strong>
+                      </span>
+                    @endif
+                  </div>
                 </div>
               </div>
               <div class="form-group row">
@@ -180,6 +186,7 @@
 @endsection
 
 @push('plugin-scripts')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
 @endpush
 
 @push('custom-scripts')
@@ -204,6 +211,13 @@ $(function () {
         $('#durasi_gangguan').val(dif);
       }
     });
+
+    $('.filter-daterange').datepicker({
+      todayBtn:'linked',
+      format:'yyyy-mm-dd 00:00:00',
+      autoclose:true
+    });
+
 });
 </script>
 @endpush

@@ -134,8 +134,8 @@ class HistoriGangguanController extends Controller
                 $row['month'] = MonthHelper::getName($restitusi->month);
                 $row['lokasi'] = $restitusi->alamat;
                 $row['durasi_gangguan'] = $restitusi->total_durasi;
-                $row['capai_kerja'] = ($restitusi->capai_kerja * 100) . '%';
-                $row['restitusi_persentase'] = ($restitusi->restitusi_persentase * 100) . '%';
+                $row['capai_kerja'] = round(($restitusi->capai_kerja * 100), 2);
+                $row['restitusi_persentase'] = round(($restitusi->restitusi_persentase * 100), 2);
                 $row['restitusi'] = $restitusi->restitusi;
                 $row['jumlah_akhir'] = $restitusi->jumlah_akhir;
 

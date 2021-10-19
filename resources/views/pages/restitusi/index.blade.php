@@ -160,8 +160,14 @@ function initFilter()
               } },
             {data: 'alamat', name: 'alamat', orderable: false, searchable: false},
             {data: 'total_durasi', name: 'total_durasi', orderable: false, searchable: false},
-            {data: 'capai_kerja', name: 'capai_kerja', orderable: false, searchable: false},
-            {data: 'restitusi_persentase', name: 'restitusi_persentase', orderable: false, searchable: false},
+            {data: 'capai_kerja', name: 'capai_kerja', orderable: false, searchable: false,
+              render: function (data, type, full, meta) {
+                return '<span>'+ (Math.round((data * 100) * 100) / 100) + '</span';
+              } },
+            {data: 'restitusi_persentase', name: 'restitusi_persentase', orderable: false, searchable: false,
+              render: function (data, type, full, meta) {
+                return '<span>'+ (Math.round((data * 100) * 100) / 100) + '</span';
+              } },
             {data: 'restitusi', name: 'restitusi', orderable: false, searchable: false},
             {data: 'jumlah_akhir', name: 'jumlah_akhir', orderable: false, searchable: false},
             {data: 'action', name: 'action', orderable: false, searchable: false},

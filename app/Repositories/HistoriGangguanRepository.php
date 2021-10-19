@@ -81,8 +81,8 @@ class HistoriGangguanRepository
                 'lokasi.id as lokasi_id', 
                 'lokasi.alamat as alamat', 
                 DB::raw('sum(histori_gangguan.durasi_gangguan) as total_durasi'),
-                DB::raw('round(((((44640 - sum(durasi_gangguan)) / 44640) * 100) / 100) ,2) as capai_kerja'),
-                DB::raw('round((0.999 - ((((44640 - sum(durasi_gangguan)) / 44640) * 100) / 100)),2) as restitusi_persentase'),
+                DB::raw('round(((((44640 - sum(durasi_gangguan)) / 44640) * 100) / 100) , 4) as capai_kerja'),
+                DB::raw('round((0.999 - ((((44640 - sum(durasi_gangguan)) / 44640) * 100) / 100)), 4) as restitusi_persentase'),
                 DB::raw('(round((round(5000000 * (0.999 - ((((44640 - sum(durasi_gangguan)) / 44640) * 100) / 100)) ,0) / 100), 0) * 100) as restitusi'),
                 DB::raw('(5000000 - (round((round(5000000 * (0.999 - ((((44640 - sum(durasi_gangguan)) / 44640) * 100) / 100)) ,0) / 100), 0) * 100)) as jumlah_akhir'))
             ->where('histori_gangguan.hasil_klasifikasi_id', 1);

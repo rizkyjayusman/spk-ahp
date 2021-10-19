@@ -202,7 +202,7 @@ function initFilter()
       });
 
       $('#refresh').click(function(){
-        $('#userListTable').DataTable().destroy();
+        $('#historiGangguanListTable').DataTable().destroy();
         initFilter();
         load_data();
       });

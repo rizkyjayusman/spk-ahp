@@ -31,13 +31,16 @@
             <div class="filter">
                 <h6><b>Filter</b></h6>
                 <div class="row">
-                  <div class="form-group col-md-2">
-                    <select id="status_filter" class="js-example-basic-single w-100">
-                      <option value="" selected>Status</option>
-                      <option value="1">Aktif</option>
-                      <option value="0">Tidak Aktif</option>
-                    </select>
-                  </div>
+                <div class="form-group input-daterange filter-daterange col-md-4">
+                  <div class="row">
+                        <div class="col-md-6">
+                        <input type="text" class="form-control" id="from_date" name="from_date" autocomplete="off" placeholder='From date'>
+                        </div>
+                        <div class="col-md-6">
+                        <input type="text" id="to_date" name="to_date" class="form-control" autocomplete="off" placeholder='To date'>
+                        </div>
+                    </div>
+                </div>
                 </div>
                 <a href="#" name="filter" id="filter" class="btn btn-success btn-rounded btn-sm">Search</a> 
                 <a href="#" name="refresh" id="refresh" class="btn btn-light">Reset</a>
@@ -107,8 +110,11 @@ $(function () {
 
 function initFilter()
     {
-        $('#status_filter').val('').trigger('change');
-
+      let date = new Date();
+      $('#to_date').val(date.toISOString().slice(0, 10));
+      
+      date.setDate(date.getDate() - 30);
+      $('#from_date').val(date.toISOString().slice(0, 10));
     }
 
     function load_data() {
@@ -121,7 +127,8 @@ function initFilter()
           url:"/api/histori-gangguan",
           type: "POST",
           data: {
-            'status': $('#status_filter').val(),
+            'from_date': $('#from_date').val(),
+            'to_date': $('#to_date').val(),
           }
         },
         columns: [
@@ -156,9 +163,31 @@ function initFilter()
       })
 
       $('#filter').click(function(){
-        $('#historiGangguanListTable').DataTable().destroy();
-        load_data();
+        
+        var from_date = $('#from_date').val();
+        var to_date = $('#to_date').val();
+        if(from_date != '' &&  to_date != '')
+        {
+          $('#historiGangguanListTable').DataTable().destroy();
+          load_data();
+        }
+        else
+        {
+          alert('Both Date is required');
+        }
        });
+
+       $('.filter-daterange').datepicker({
+        todayBtn:'linked',
+        format:'yyyy-mm-dd',
+        autoclose:true
+      });
+      $('.input-daterange__expired').datepicker({
+        todayBtn:'linked',
+        format:'yyyy-mm-dd',
+        startDate: new Date(),
+        autoclose:true
+      });
 
       $('#removeUserBtn').click(function(e) {
         $.ajax({
@@ -180,15 +209,12 @@ function initFilter()
       let str = jQuery.param( {
         to_date: $('#to_date').val(),
         from_date: $('#from_date').val(),
-        coupon_code: $('#inputCouponCode').val(),
-                    product_id: $('#inputProductSelect').val(),
-                          status: $('#inputStatusSelect').val()
-          } )
+      } )
           window.location.href = "/api/histori-gangguan/export?" + str;
         });
 
       $('#refresh').click(function(){
-        $('#userListTable').DataTable().destroy();
+        $('#historiGangguanListTable').DataTable().destroy();
         initFilter();
         load_data();
       });

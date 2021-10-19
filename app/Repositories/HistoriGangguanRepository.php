@@ -26,6 +26,10 @@ class HistoriGangguanRepository
         if(isset($request['lokasi_id'])) {
             $historiGangguanList->whereRaw('lokasi_id = ?', [ $request['lokasi_id'] ]);
         }
+
+        if(isset($request['from_date']) && isset($request['to_date'])) {
+            $historiGangguanList->whereBetween('awal_gangguan', [ $request['from_date'] . ' 00:00:00', $request['to_date'] . ' 23:59:59' ]);
+        }
         
         return $historiGangguanList->get();
     }

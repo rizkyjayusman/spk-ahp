@@ -29,20 +29,20 @@
               <div class="form-group row">
                 <label for="status" class="col-sm-3 col-form-label">Status</label>
                 <div class="col-sm-9">
-                  <select name="status" id="status" class="js-example-basic-single w-100 {{ $errors->has('status') ? ' is-invalid' : '' }}"  value="{{ isset($konklusi) ? $konklusi->status : '' }}" required>
+                  <select name="status" id="status" class="js-example-basic-single w-100 {{ $errors->has('status') ? ' is-invalid' : '' }}" required>
                     <option value="" 
                       @if (! isset($user)) selected="selected" @endif >Status</option>
                     <option value="1"
-                      @if (isset($konklusi)) @if($konklusi->status == 1)
-                        selected="selected"
-                      @endif @elseif(old('status') == 1)
-                        selected="selected"
+                      @if (isset($konklusi)) 
+                        @if($konklusi->status == 1) selected @endif 
+                      @elseif(old('status')) 
+                        @if(old('status') == 1) selected @endif 
                       @endif >Aktif</option>
                     <option value="0"
-                      @if (isset($konklusi)) @if($konklusi->status == 0)
-                          selected="selected"
-                      @endif @elseif(old('status') == 0)
-                        selected="selected"
+                      @if (isset($konklusi)) 
+                        @if($konklusi->status == 0) selected @endif 
+                      @elseif(old('status'))
+                        @if(old('status') == 0) selected @endif 
                       @endif > Tidak Aktif </option>
                   </select>
                   @if($errors->has('status'))

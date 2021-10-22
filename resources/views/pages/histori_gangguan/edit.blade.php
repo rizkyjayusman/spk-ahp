@@ -107,12 +107,8 @@
                     @foreach($kategori_gangguan as $kategori)
                         <option value="{{$kategori['id']}}" 
                         @if(isset($histori_gangguan)) 
-                          @if($histori_gangguan->kategori_gangguan_id == $kategori['id']) 
-                            {{ 'selected' }} 
-                          @endif 
-                        @elseif(old('kategori_gangguan_id') == $kategori['id'])
-                          {{ 'selected' }} 
-                        @endif >{{$kategori['title']}}</option>
+                          @if($histori_gangguan->kategori_gangguan_id == $kategori['id']) selected @endif 
+                        @elseif(old('kategori_gangguan_id') == $kategori['id']) selected @endif >{{$kategori['title']}}</option>
                     @endforeach
                   </select>
                   @if($errors->has('kategori_gangguan_id'))
@@ -126,23 +122,15 @@
                 <label for="hasil_klasifikasi_id" class="col-sm-3 col-form-label"> Hasil Klasifikasi </label>
                 <div class="col-sm-9">
                   <select name="hasil_klasifikasi_id" id="hasil_klasifikasi_id" class="js-example-basic-single w-100 {{ $errors->has('hasil_klasifikasi_id') ? ' is-invalid' : '' }}" required>
-                    <option value="" > Hasil Klasifikasi </option>
+                    <option value="" selected > Hasil Klasifikasi </option>
                     <option value="1"
                       @if(isset($histori_gangguan)) 
-                        @if($histori_gangguan->hasil_klasifikasi_id == 1) 
-                          {{'selected'}} 
-                        @endif
-                        @elseif(old('hasil_klasifikasi_id') == 1)
-                          {{ 'selected' }} 
-                        @endif > Restitusi </option>
+                        @if($histori_gangguan->hasil_klasifikasi_id == 1) selected @endif
+                        @elseif(old('hasil_klasifikasi_id') == 1) selected' @endif > Restitusi </option>
                     <option value="0"  
                       @if(isset($histori_gangguan)) 
-                        @if($histori_gangguan->hasil_klasifikasi_id == 0) 
-                        {{'selected'}} 
-                      @endif 
-                      @elseif(old('hasil_klasifikasi_id') == 0)
-                          {{ 'selected' }} 
-                        @endif " > Tidak Dihitung Jam Gangguan </option>
+                        @if($histori_gangguan->hasil_klasifikasi_id == 0) selected @endif 
+                      @elseif(old('hasil_klasifikasi_id')) @if(old('hasil_klasifikasi_id') == 0) selected @endif @endif > Tidak Dihitung Jam Gangguan </option>
                   </select>
                   @if($errors->has('hasil_klasifikasi_id'))
                     <span class="invalid-feedback" role="alert">
@@ -159,12 +147,8 @@
                     @foreach($konklusi as $k)
                         <option value="{{$k['id']}}" 
                           @if(isset($histori_gangguan)) 
-                            @if($histori_gangguan->konklusi_id == $k['id']) 
-                            {{'selected'}} 
-                          @endif 
-                          @elseif(old('konklusi_id') == $k['id'])
-                            {{ 'selected' }} 
-                          @endif " >{{$k['title']}}</option>
+                            @if($histori_gangguan->konklusi_id == $k['id'])  selected @endif 
+                          @elseif(old('konklusi_id') == $k['id']) selected @endif >{{$k['title']}}</option>
                     @endforeach
                   </select>
                   @if($errors->has('konklusi_id'))

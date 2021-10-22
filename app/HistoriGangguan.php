@@ -10,8 +10,6 @@ class HistoriGangguan extends Model
 
     protected $casts = [
         'created_at' => 'datetime:Y-m-d H:m:s',
-        'awal_gangguan' => 'datetime:Y-m-d H:m:s',
-        'akhir_gangguan' => 'datetime:Y-m-d H:m:s',
     ];
     
     protected $fillable = [

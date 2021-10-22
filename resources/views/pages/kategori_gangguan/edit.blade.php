@@ -18,7 +18,7 @@
               <div class="form-group row">
                 <label for="title" class="col-sm-3 col-form-label">Kategori</label>
                 <div class="col-sm-9">
-                <input type="text" class="form-control {{ $errors->has('title') ? ' is-invalid' : '' }}" id="title" name="title" placeholder="Action" value="{{ isset($kategori) ? $kategori->title : old('title') }}" required>
+                <input type="text" class="form-control {{ $errors->has('title') ? ' is-invalid' : '' }}" id="title" name="title" placeholder="Kategori Gangguan" value="{{ isset($kategori) ? $kategori->title : old('title') }}" required>
                 @if($errors->has('title'))
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $errors->first('title') }}</strong>
@@ -29,22 +29,20 @@
               <div class="form-group row">
                 <label for="status" class="col-sm-3 col-form-label">Status</label>
                 <div class="col-sm-9">
-                  <select name="status" id="status" class="js-example-basic-single w-100 {{ $errors->has('status') ? ' is-invalid' : '' }}"  value="{{ isset($kategori) ? $kategori->status : old('status') }}" required>
+                  <select name="status" id="status" class="js-example-basic-single w-100 {{ $errors->has('status') ? ' is-invalid' : '' }}" required>
                     <option value="" 
-                      @if (! isset($user)) selected="selected" @endif >Status</option>
+                      @if (! isset($user)) selected @endif >Status</option>
                     <option value="1"
-                      @if (isset($kategori)) @if($kategori->status == 1)
-                        selected="selected"
-                      @endif 
-                      @elseif(old('status') == 1)
-                        selected="selected"
+                      @if (isset($kategori)) 
+                        @if($kategori->status == 1) selected @endif 
+                      @elseif(old('status'))
+                        @if(old('status') == 1) selected @endif 
                       @endif >Aktif</option>
                     <option value="0"
-                      @if (isset($kategori)) @if($kategori->status == 0)
-                          selected="selected"
-                      @endif 
-                      @elseif(old('status') == 0)
-                        selected="selected"
+                      @if (isset($kategori)) 
+                        @if($kategori->status == 0) selected @endif 
+                      @elseif(old('status')) 
+                        @if(old('status') == 0) selected @endif
                       @endif > Tidak Aktif </option>
                   </select>
                   @if($errors->has('status'))

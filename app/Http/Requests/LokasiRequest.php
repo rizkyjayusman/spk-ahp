@@ -24,8 +24,7 @@ class LokasiRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required',
-            'status' => 'required',
+            'alamat' => 'required',
         ];
     }
 }

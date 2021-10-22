@@ -95,11 +95,13 @@ comming soon!
 4. Generate Laravel Key
    $ php artisan key:generate
 
-5. Migrate Table
+5. Create `spkahp` database on your MySQL
+
+6. Migrate Table
    $ php artisan migrate
    $ php artisan db:seed
 
-6. Run the Project
+7. Run the Project
    $ php artisan serve
 ```
 

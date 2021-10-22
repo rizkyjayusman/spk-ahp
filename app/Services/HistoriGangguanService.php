@@ -23,11 +23,14 @@ class HistoriGangguanService
 
     public function save($request = [])
     {
+        $request['durasi_gangguan'] = $this->calculateDurasiGangguan($request);
+        return $this->historiGangguanRepository->save($request);
+    }
+
+    private function calculateDurasiGangguan($request = []) {
         $startDate = Carbon::parse($request['awal_gangguan']);
         $endDate = Carbon::parse($request['akhir_gangguan']);
-        $request['durasi_gangguan'] = $endDate->diffInMinutes($startDate);
-
-        return $this->historiGangguanRepository->save($request);
+        return $endDate->diffInMinutes($startDate);
     }
 
     public function getHistoriGangguanById($id)
@@ -37,6 +40,7 @@ class HistoriGangguanService
 
     public function update($id, $request = [])
     {
+        $request['durasi_gangguan'] = $this->calculateDurasiGangguan($request);
         return $this->historiGangguanRepository->update($id, $request);
     }
 

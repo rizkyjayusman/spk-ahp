@@ -90,11 +90,16 @@ comming soon!
 2. Install Dependencies
    $ composer install
 
-3. Migrate Table
+3. Copy file '.env.example' to '.env'
+
+4. Generate Laravel Key
+   $ php artisan key:generate
+
+5. Migrate Table
    $ php artisan migrate
    $ php artisan db:seed
 
-3. Run the Project
+6. Run the Project
    $ php artisan serve
 ```
 

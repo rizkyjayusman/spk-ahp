@@ -71,48 +71,6 @@ This tables shows which features that has been implemented by this repository.
 
 We already create test cases list. You can download [here](https://github.com/rizkyjayusman/spk-ahp/blob/master/docs/TestCase.xlsx)
 
-# Installation and Run (Using XAMPP)
+# Installation and Run
 
-### XAMPP Installation
-
-comming soon!
-
-### Composer Installation
-
-comming soon!
-
-### Run
-```
-1. Clone the Project
-   $ git clone https://github.com/rizkyjayusman/spk-ahp.git
-   $ cd spk-ahp
-
-2. Install Dependencies
-   $ composer install
-
-3. Copy file '.env.example' to '.env'
-
-4. Generate Laravel Key
-   $ php artisan key:generate
-
-5. Create `spkahp` database on your MySQL
-
-6. Migrate Table
-   $ php artisan migrate
-   $ php artisan db:seed
-
-7. Run the Project
-   $ php artisan serve
-```
-
-# Build and Run (With Laradock)
-
-```
-1. Clone the Project
-   $ git clone git@github.com:rizkyjayusman/cooperation.git
-   $ cd cooperation
-
-2. Build and Package the Project
-   $ docker build -t alami-cooperation-app .
-   $ docker-compose up -d --build
-```
+We already create guide to install and run this project. You can see [here](https://docs.google.com/document/d/1lfyt8s28kM8s_Dtj-mF7uFzfh8OQI8D6A1Tr4hFCjKs/edit?usp=sharing)

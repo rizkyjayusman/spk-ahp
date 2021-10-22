@@ -42,7 +42,7 @@ class UserRepository implements UserRepositoryInterface
         $user = User::find($id);
         $user->name = $request['name'];
         $user->role_id = $request['role'];
-        $user->password = $request['password'];
+        $user->password = bcrypt($request['password']);
         return $user->update();
     }
 

@@ -19,6 +19,8 @@ class UserTableSeeder extends Seeder
                 'password'  => bcrypt('p@ssw0rd'),
                 'remember_token'   => null,
                 'role_id' => 1 , // ADMIN
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'email' => 'user@spkahp.com',
@@ -27,6 +29,8 @@ class UserTableSeeder extends Seeder
                 'password'  => bcrypt('p@ssw0rd'),
                 'remember_token'   => null,
                 'role_id' => 2 , // USER
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
         );
         DB::table('users')->insert($data);

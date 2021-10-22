@@ -80,11 +80,11 @@ class HistoriGangguanRepository
                 DB::raw('month(awal_gangguan) as month'),
                 'lokasi.id as lokasi_id', 
                 'lokasi.alamat as alamat', 
-                DB::raw('sum(histori_gangguan.durasi_gangguan) as total_durasi'),
-                DB::raw('round(((((44640 - sum(durasi_gangguan)) / 44640) * 100) / 100) , 4) as capai_kerja'),
-                DB::raw('round((0.999 - ((((44640 - sum(durasi_gangguan)) / 44640) * 100) / 100)), 4) as restitusi_persentase'),
-                DB::raw('(round((round(5000000 * (0.999 - ((((44640 - sum(durasi_gangguan)) / 44640) * 100) / 100)) ,0) / 100), 0) * 100) as restitusi'),
-                DB::raw('(5000000 - (round((round(5000000 * (0.999 - ((((44640 - sum(durasi_gangguan)) / 44640) * 100) / 100)) ,0) / 100), 0) * 100)) as jumlah_akhir'))
+                DB::raw($this->getColumnTotalDurasi()),
+                DB::raw($this->getColumnCapaiKerja()),
+                DB::raw($this->getColumnRestitusiPersentase()),
+                DB::raw($this->getColumnNilaiRestitusiRupiah()),
+                DB::raw($this->getColumnJumlahAkhir()))
             ->where('histori_gangguan.hasil_klasifikasi_id', 1);
         
         if(isset($request['month'])) {
@@ -97,6 +97,42 @@ class HistoriGangguanRepository
 
         $restitusi->groupBy(DB::raw('year(awal_gangguan)'), DB::raw('month(awal_gangguan)'), 'lokasi_id');
         return $restitusi;
+    }
+
+    private function getColumnTotalDurasi() {
+        return 'sum(histori_gangguan.durasi_gangguan) as total_durasi';
+    }
+
+    private function getColumnCapaiKerja() {
+        return 'round(' . $this->getGangguanPerBulanInPercent() .', 4) as capai_kerja';
+    }
+
+    private function getGangguanPerBulanInPercent() {
+        $gangguanPerBulan = '(44640 - sum(durasi_gangguan))'; // menit
+        $gangguanPerBulanInDecimal = '(' . $gangguanPerBulan . ' / 44640)';
+        return '((' . $gangguanPerBulanInDecimal . ' * 100) / 100)';
+    }
+
+    private function getColumnRestitusiPersentase() {
+        return 'round('. $this->getNilaiRestitusiPercent() . ', 4) as restitusi_persentase';
+    }
+
+    private function getNilaiRestitusiPercent() {
+        return '(0.999 - ' . $this->getGangguanPerBulanInPercent() . ')';
+    }
+
+    private function getColumnNilaiRestitusiRupiah() {
+        return $this->getNilaiRestitusiRupiah() . ' as restitusi';
+    }
+
+    private function getNilaiRestitusiRupiah() {
+        $nilaiRestitusiRupiah = '5000000 * round(' . $this->getNilaiRestitusiPercent() . ', 4)';
+        $nilaiRestitusiRupiah = '(round('.$nilaiRestitusiRupiah.' / 100, 0) * 100)';
+        return $nilaiRestitusiRupiah;
+    }
+
+    private function getColumnJumlahAkhir() {
+        return '5000000 - ' . $this->getNilaiRestitusiRupiah() . ' as jumlah_akhir';
     }
 
     public function getRestitusiByMonthAndLokasiId($month, $lokasiId) {

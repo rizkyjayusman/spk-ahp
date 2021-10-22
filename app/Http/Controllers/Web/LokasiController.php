@@ -44,7 +44,7 @@ class LokasiController extends Controller
     }
 
     
-    public function editLokasi($id, Request $request) 
+    public function editLokasi($id, LokasiRequest $request) 
     {
         $user = $this->lokasiService->update($id, $request->validated());
         return redirect('/lokasi');

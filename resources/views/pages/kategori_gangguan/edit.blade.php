@@ -18,7 +18,7 @@
               <div class="form-group row">
                 <label for="title" class="col-sm-3 col-form-label">Kategori</label>
                 <div class="col-sm-9">
-                <input type="text" class="form-control {{ $errors->has('title') ? ' is-invalid' : '' }}" id="title" name="title" placeholder="Kategori Gangguan" required>
+                <input type="text" class="form-control {{ $errors->has('title') ? ' is-invalid' : '' }}" id="title" name="title" value="{{ isset($kategori) ? $kategori->title : '' }}" placeholder="Kategori Gangguan" required>
                 @if($errors->has('title'))
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $errors->first('title') }}</strong>

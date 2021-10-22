@@ -52,7 +52,7 @@
                       <th>Lokasi</th>
                       <th>Awal Gangguan</th>
                       <th>Berakhirnya Gangguan</th>
-                      <th>Durasi Gangguan</th>
+                      <th>Durasi Gangguan (Menit)</th>
                       <th>Kategori Gangguan</th>
                       <th>Hasil Klafikasi</th>
                       <th>Action</th>
@@ -140,9 +140,9 @@ function initFilter()
             {data: 'hasil_klasifikasi_id', name: 'hasil_klasifikasi_id', orderable: false, searchable: false,
               render: function (data, type, full, meta) {
                 if(data == 1) {
-                  return '<span> Restitusi </span>';
+                  return '<span> Dihitung Menit Gangguan </span>';
                 } else {
-                  return '<span> Tidak Dihitung Jam Gangguan </label>';
+                  return '<span> Tidak Dihitung Menit Gangguan </label>';
                 }
               }},
             {data: 'konklusi.title', name: 'konklusi_title', orderable: false, searchable: false},

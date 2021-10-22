@@ -28,9 +28,9 @@ class HistoriGangguan extends Model
 
     public function getHasilKlasifikasiTitleAttribute() {
         if($this->hasil_klasifikasi_id == 1) {
-            return 'Restitusi';
+            return 'Dihitung Menit Gangguan';
         } else {
-            return 'Tidak Dihitung Jam Gangguan';
+            return 'Tidak Dihitung Menit Gangguan';
         }
     }
 

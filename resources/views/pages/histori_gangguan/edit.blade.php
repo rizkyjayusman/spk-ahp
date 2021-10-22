@@ -126,11 +126,11 @@
                     <option value="1"
                       @if(isset($histori_gangguan)) 
                         @if($histori_gangguan->hasil_klasifikasi_id == 1) selected @endif
-                        @elseif(old('hasil_klasifikasi_id') == 1) selected' @endif > Restitusi </option>
+                        @elseif(old('hasil_klasifikasi_id') == 1) selected' @endif > Dihitung Menit Gangguan </option>
                     <option value="0"  
                       @if(isset($histori_gangguan)) 
                         @if($histori_gangguan->hasil_klasifikasi_id == 0) selected @endif 
-                      @elseif(old('hasil_klasifikasi_id')) @if(old('hasil_klasifikasi_id') == 0) selected @endif @endif > Tidak Dihitung Jam Gangguan </option>
+                      @elseif(old('hasil_klasifikasi_id')) @if(old('hasil_klasifikasi_id') == 0) selected @endif @endif > Tidak Dihitung Menit Gangguan </option>
                   </select>
                   @if($errors->has('hasil_klasifikasi_id'))
                     <span class="invalid-feedback" role="alert">

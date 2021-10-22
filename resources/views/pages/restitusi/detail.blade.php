@@ -13,6 +13,12 @@
             <h4 class="card-title">Detail Restitusi</h4>
             <p class="card-description"></p>
             <div class="form-group row">
+              <p class="col-sm-3">Lokasi</p>
+              <div class="col-sm-9">
+                  <p>{{ isset($lokasi) ? $lokasi->alamat : '-'  }}</p>
+              </div>
+            </div>
+            <div class="form-group row">
               <p class="col-sm-3">Bulan</p>
               <div class="col-sm-9">
                 @if(isset($restitusi))

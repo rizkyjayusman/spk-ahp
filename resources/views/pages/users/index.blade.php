@@ -163,7 +163,8 @@ $(function () {
           processData: false,
           success: (data) => {
               $('#confirmModal').modal('hide');
-              table.draw();
+              $('#userListTable').DataTable().destroy();
+              load_data();
           },
           error: function(data){}
           });

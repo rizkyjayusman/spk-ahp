@@ -6,7 +6,7 @@
     <div class="col-lg-4 mx-auto">
       <div class="auth-form-light text-left py-5 px-4 px-sm-5">
         <div class="brand-logo">
-          <h4 class="text-primary">Sistem Penunjang Keputusan</h4>
+          <h4 class="text-primary">Sistem Penentuan Restitusi</h4>
         </div>
         <h4>Hello! let's get started</h4>
         <h6 class="fw-light">Sign in to continue.</h6>

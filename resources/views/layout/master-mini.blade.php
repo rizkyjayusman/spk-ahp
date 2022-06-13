@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Sistem Penunjang Keputusan</title>
+  <title>Sistem Penentuan Restitusi</title>
 
     <!-- CSRF Token -->
     <meta name="_token" content="{{ csrf_token() }}">

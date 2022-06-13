@@ -7,7 +7,7 @@
       </a>
     </li>
     </li>
-    <li class="nav-item nav-category">penunjang keputusan</li>
+    <li class="nav-item nav-category">Penentuan Restitusi</li>
     <li class="nav-item {{ active_class(['histori-gangguan']) }}">
       <a class="nav-link" href="{{ url('/histori-gangguan') }}">
         <i class="menu-icon mdi mdi-file"></i>
